@@ -78,7 +78,7 @@ class HangmanGame(object):
         return cls.word_to_guess
     
     def guess(self, guess):
-        if self.is_finished() is True:
+        if self.is_finished():
             raise GameFinishedException
     
         guess = guess.lower()
@@ -88,10 +88,10 @@ class HangmanGame(object):
         if attempt.is_miss():
             self.remaining_misses -= 1
         
-        if HangmanGame.is_won(self) is True:
+        if HangmanGame.is_won(self):
             raise GameWonException
         
-        if HangmanGame.is_lost(self) is True:
+        if HangmanGame.is_lost(self):
             raise GameLostException
         
         return attempt
